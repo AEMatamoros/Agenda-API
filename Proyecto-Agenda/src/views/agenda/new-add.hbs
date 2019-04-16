@@ -1,0 +1,72 @@
+<!--Se utiliza sintaxis de handlebars para mostrarlos mensajes de error de forma asincrona
+si existe un error recorre el arrelo de errores para mostrarlos-->
+{{#each errors }}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{text}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{{/each}}
+
+
+
+<div class="col-md-6 col-xl-6 col-sm-6 mx-auto">
+    <div class="card">
+    <div class="card-header">
+        <h3>Nuevo registro</h3>
+    </div>
+    <div class="card-body">
+        <form action="/agenda/new-add" method="POST">
+                <div class="form-group">
+                    <input type="text" name="Nombre" value="Hyperion"class="form-control" placeholder="Nombre Ejemplo:Hyperion" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="Direccion" value="Olimpo" class="form-control" placeholder="Nombre Direccion:El Monte Olimpo" autofocus>
+                </div>
+                <div class="form-group" style="padding-left:50px">
+                     <select class="form-control" name="TDireccion">
+                        <option value="Direccion Fija">Direccion Fija</option>
+                        <option value="Casa de Campo">Casa de campo</option>
+                        <option value="Apartamento">Apartamento</option>
+                        <option value="Trabajo">Trabajo</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="Telefono"value="99-78-15-10" class="form-control" placeholder="Telefono Ejemplo:99-78-46-66" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="Correo"value="Hyperion@gmail.com" class="form-control" placeholder="Correo Ejemplo:Hyperion@gmail.com" autofocus>
+                </div>
+                <div class="form-group" >
+                     <select class="form-control" name="TRed" value="Tipo Red Social">
+                        <option value="Fasebuk">Fasebuk</option>
+                        <option value="Tuiter">Tuiter</option>
+                        <option value="Jinstagram">Jinstagram</option>
+                        <option value="Tartar-OS">Tartar-OS</option>
+                        <option value="Ninguna">Ninguna</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="Ocupacion" value="Titan del Olimpo" class="form-control" placeholder="Ocupacion:Titan del Olimpo" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="Identidad" value="0801-1996-08686" class="form-control" placeholder="Identidad:0801-1996-08686" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="FechaN"value="6-junio-1996" class="form-control" placeholder="Fecha Nacimiento:6-Junio-1996" autofocus>
+                </div>
+                <div class="form-group">
+                    <textarea name="Descripcion"  class="form form-control" placeholder="Descripcion"
+                    >"El titan que los observa a todos desde lo alto"
+                    </textarea>
+                </div>
+                <center>
+                    <button type="submit" class="btn btn-primary">Guardar Registro</button>
+                </center>
+
+        </form>
+    </div>
+</div>
+</div>
