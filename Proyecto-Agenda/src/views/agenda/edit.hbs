@@ -1,0 +1,60 @@
+<div class="col-md-6 col-xl-6 col-sm-6 mx-auto"></div>
+    <div class="card">
+    <div class="card-header">
+        <h3>Editar</h3>
+    </div>
+    <div class="card-body">
+        <form action="/agenda/edit/{{param.id}}?_method=PUT" method="POST">
+                <input type="hidden" name="_method" value="PUT">
+                <div class="form-group">
+                    <input type="text" name="Nombre" value="{{param.Nombre}}"class="form-control" placeholder="Nombre Ejemplo:Hyperion" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="Direccion" value="{{param.Direccion}}" class="form-control" placeholder="Nombre Direccion:El Monte Olimpo" autofocus>
+                </div>
+                <div class="form-group" style="padding-left:50px">
+                     <select class="form-control" name="TDireccion" value="{{param.TDireccion}}">
+                        <option value="Direccion Fija">Direccion Fija</option>
+                        <option value="Casa de Campo">Casa de campo</option>
+                        <option value="Apartamento">Apartamento</option>
+                        <option value="Trabajo">Trabajo</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="Telefono"value="{{param.Telefono}}" class="form-control" placeholder="Telefono Ejemplo:99-78-46-66" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="Correo"value="{{param.Correo}}" class="form-control" placeholder="Correo Ejemplo:Hyperion@gmail.com" autofocus>
+                </div>
+                <div class="form-group" >
+                     <select class="form-control" name="TRed" value="{{param.TRed}}">
+                        <option value="Fasebuk">Fasebuk</option>
+                        <option value="Tuiter">Tuiter</option>
+                        <option value="Jinstagram">Jinstagram</option>
+                        <option value="Tartar-OS">Tartar-OS</option>
+                        <option value="Ninguna">Ninguna</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="Ocupacion" value="{{param.Ocupacion}}" class="form-control" placeholder="Ocupacion:Titan del Olimpo" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="Identidad" value="{{param.Identidad}}" class="form-control" placeholder="Identidad:0801-1996-08686" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="FechaN"value="{{param.FechaN}}" class="form-control" placeholder="Fecha Nacimiento:6-Junio-1996" autofocus>
+                </div>
+                <div class="form-group">
+                    <textarea name="Descripcion"  class="form form-control" placeholder="Descripcion" value=""
+                    >{{param.Descripcion}}
+                    </textarea>
+                </div>
+                <center>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </center>
+
+        </form>
+    </div>
+</div>
+</div>

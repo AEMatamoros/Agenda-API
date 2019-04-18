@@ -80,9 +80,46 @@ router.post('/agenda/new-add',async (rep,res)=>{
 });
 
 router.get('/agenda',async (rep,res)=>{
-    const agendas= await Agenda.find();
+    const agendas= await Agenda.find().sort({FechaC:'desc'});
     res.render('agenda/show-add',{agendas});
     //Agenda.find(Nombre:"Hyperion");//PAra filtrar informacion de la bd
 });
 
+router.get('/agenda/edit/:id',async (rep,res)=>{
+    const param= await Agenda.findById(rep.params.id);
+    res.render('agenda/edit',{param});
+    //Agenda.find(Nombre:"Hyperion");//PAra filtrar informacion de la bd
+});
+
+router.put('/agenda/edit/:id',async (rep,res)=>{
+    const {Nombre,
+        Direccion,
+        TDireccion,
+        Telefono,
+        Correo,
+        TRed,
+        Ocupacion,
+        Identidad,
+        FechaN,
+        Descripcion}=rep.body;
+    
+    await Agenda.findByIdAndUpdate(rep.params.id,{Nombre,
+        Direccion,
+        TDireccion,
+        Telefono,
+        Correo,
+        TRed,
+        Ocupacion,
+        Identidad,
+        FechaN,
+        Descripcion});
+        res.redirect('/agenda');
+    });
+
+router.delete('/agenda/delete/:id',async (rep,res)=>{
+    /*console.log(rep.params.id);
+    res.send('ok');*/
+    await Agenda.findByIdAndDelete(rep.params.id);
+    res.redirect('/agenda');
+});
 module.exports=router;
