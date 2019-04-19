@@ -1,25 +1,44 @@
-            <br>
-            <div style="background-color:white">
-                <center>
-                    <h1>Ingresar</h1>
-                    <table>
-                        <tr class=>
-                            <td><label for="">Correo Electronico </label></td>
-                            <td><input type="Ej:Pablo" name="" id="txt-contraseña"></td>
-                        </tr>
-                        <tr class=>
-                            <td><label for="">Contraseña</label></td>
-                            <td><input type="Ej:Pablo" name="" id="txt-correo"></td>
-                        </tr>
-                    </table>
-                    <br>
-                   <button class="btn-lg" style="background-color:#30497E;color:yellow">
-                       Ingresar</button>
-
-
-
-                </center>
-                
-            </div>
+   {{#each errors }}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{text}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{{/each}}
+   
+   <div class="row" style="overflow-y:hidden">
+        <div style="background-color:white" class="col">
+            <form action="/users/signup?_method=POST" method="POST">
+                <table >
+                    <tr><th><h1 style="color:#1C2D50">Registrate</h1></th></tr><br>
+                    <tr class=>
+                        <td><label for="">Nombre </label></td>
+                        <td><input type="text" name="Nombre" id="Nombre"></td>
+                    </tr>
+                    <tr class=>
+                        <td><label for="">Correo Electronico </label></td>
+                        <td><input type="text" name="Correo" id=""></td>
+                    </tr>
+                    <tr class=>
+                        <td><label for="">Contraseña</label></td>
+                        <td><input type="Password" name="Password" id=""></td>
+                    </tr>
+                    <tr class=>
+                        <td><label for="">Confirmacion</label></td>
+                        <td><input type="Password" name="PasswordC" id=""></td>
+                    </tr>
             
-            
+                </table>
+                <br><br>
+                <button type="submit" class="btn-lg" style="background-color:#30497E;color:yellow">Registrarte</button>
+            </form>
+       
+        <br><br>
+        </div>
+        <div class="col"style="background-image: url(../imagenes/cartoon.jpg);background-repeat: no-repeat
+        ;height: 400px;background-position: center center">
+        <h1></h1>
+        </div>
+   </div>
+   
