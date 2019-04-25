@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Agenda Virtual UNAH</title>
-    <!--enlace estilos boostrap-->    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--enlace estilos boostrap-->     
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"-->
     <!--Font Awesome-->
+    <!--link rel="stylesheet" href="/css/all.css"-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!--Mis estilos-->    
     <link rel="stylesheet" href="/css/main.css">
@@ -15,41 +17,16 @@
 </head>
 <body>
     <!--Barra de Navegacion-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#" style="color:#1A2B4C">AV-UNAH</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">  Inicio <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Acerca de</a>
-            </li>
-            </ul>
-        </div>
-     </nav> <br>
-     
+     {{> navigation}}
     <!--Contenedor Principal-->
     <main class="container">
+      {{> messages}}
+      {{> errors}}
+
             {{{body}}}
 
     </main>
-
-
-
-
-
-
-
-
-
-
-
     <!--Pie de Pagina-->
-    <<!-- Footer -->
     <div style="background-color:white">
 <footer class="page-footer font-small blue pt-4">
 
@@ -80,10 +57,10 @@
 
             <ul class="list-unstyled">
               <li>
-                <a href="#!">Fasebuk</a>
+                <a href="https://es-es.facebook.com/">Fasebuk</a>
               </li>
               <li>
-                <a href="#!">Tuiter</a>
+                <a href="https://twitter.com/">Tuiter</a>
               </li>
             </ul>
 
@@ -94,14 +71,14 @@
           <div class="col-md-3 mb-md-0 mb-3">
 
             <!-- Links -->
-            <h5 class="text-uppercase">Contactos</h5>
+            <h5 class="text-uppercase">---</h5>
 
             <ul class="list-unstyled">
               <li>
-                <a href="#!">El contacto 1</a>
+                <a href="https://www.instagram.com/">In-Stagram</a>
               </li>
               <li>
-                <a href="#!">El disque Contacto 2</a>
+                <a href="https://web.whatsapp.com/">Wajack</a>
               </li>
             </ul>
 
@@ -115,8 +92,8 @@
     <!-- Footer Links -->
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2018 Copyright:
-      <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+      <a href="https://mdbootstrap.com/education/bootstrap/">AV_UNAH</a>
     </div>
     <!-- Copyright -->
 

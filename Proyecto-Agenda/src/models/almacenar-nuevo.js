@@ -11,7 +11,8 @@ const AgendaSchema=new Schema({
     Identidad:{type:String, required:true},
     FechaN:{type:String, required:true},
     Descripcion:{type:String, required:true},
-    FechaC:{type:Date,default:Date.now}
-})
+    FechaC:{type:Date,default:Date.now},
+    user:{type:String}}
+);
 
 module.exports= mongoose.model('Agenda',AgendaSchema);

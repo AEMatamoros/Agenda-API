@@ -1,10 +1,24 @@
-const express = require('express');
-const router =express.Router();
+const router = require('express').Router();
+const User=require('../models/users');
+const passport = require('passport');
 
-const user=require('../models/users');
 router.get('/users/signin',(rep,res)=>{
     res.render('users/signin');
-    });
+});
+/*
+router.post('/users/signin',(rep,res)=>{
+    const {Correo,Password}=rep.body;
+    console.log(Correo);
+    console.log(Password);
+    res.render('agenda/show-add');
+});*/
+
+router.post('/users/signin',passport.authenticate('local',{
+    successRedirect: '/agenda',
+    failureRedirect: '/users/signin',
+    failureFlash: true
+}));
+
 
  router.get('/users/signup',(rep,res)=>{
     res.render('users/signup');
@@ -40,19 +54,24 @@ router.post('/users/signup',async (rep,res)=>{
         res.render('users/signup', {errors,Nombre,Correo,Password,PasswordC})
     }else{
         //res.send('ok');
-        const Correocom= await user.findOne({Correo: Correo});
+        const Correocom= await User.findOne({Correo: Correo});
     if(Correocom){
             errors.push({text:'EL correo ya existe'});
             res.render('users/signup', {errors,Nombre,Correo,Password,PasswordC})
     }else{
-        const newUser=new user({Nombre,Correo,Password});
-            newUser.Password=await newUser.encryptPassword(Password);
+        const newUser=new User({Nombre,Correo,Password});
+           newUser.Password=await newUser.encryptPassword(Password);
             await newUser.save();
+            rep.flash('succes_msg','Registrado Satisfactoriamente');
             res.redirect('/users/signin');
     }
             
        
     };
     
-     });
+});
+router.get('/users/logout',(rep,res)=>{
+    rep.logOut();
+    res.redirect('/');
+});
 module.exports=router;

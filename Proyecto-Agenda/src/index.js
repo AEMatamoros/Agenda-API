@@ -3,9 +3,12 @@ const path= require('path');
 const exphbs =require('express-handlebars');
 const methodOverride= require('method-override');
 const session =require('express-session');
+const flash=require('connect-flash');
+const passport=require('passport');
 //Initializations
 const app= express();
 require('./database');
+require('./config/passport');
 //Settings
 app.set('port', process.env.PORT ||3000)//Asigna el puerto de escucha
 app.set('views',path.join(__dirname,'views'))//Le brinda la direccion de la carpeta views a node
@@ -26,8 +29,18 @@ app.use(session({
     resave:true,
     saveUninitialized:true
 }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 //Global Variables
+app.use((rep,res,next)=>{
+    res.locals.succes_msg = rep.flash('succes_msg');
+    res.locals.error_msg = rep.flash('error_msg');
+    res.locals.error = rep.flash('error');
+    res.locals.user=rep.user || null;
 
+    next();
+});
 //Routes
 app.use(require('./routes/index'));
 app.use(require('./routes/agenda'));
