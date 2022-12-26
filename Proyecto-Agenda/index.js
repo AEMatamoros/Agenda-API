@@ -8,7 +8,7 @@ const passport = require('passport')
 //Initializations
 const app = express()
 // require('./database')
-require('./config/passport')
+require('./src/config/passport')
 //Settings
 app.set('port', process.env.PORT || 3000) //Asigna el puerto de escucha
 app.set('views', path.join(__dirname, 'views')) //Le brinda la direccion de la carpeta views a node
@@ -48,13 +48,13 @@ app.use((rep, res, next) => {
   next()
 })
 //Routes
-app.use(require('./routes/index'))
-app.use(require('./routes/agenda'))
-app.use(require('./routes/users'))
+app.use(require('./src/routes/index'))
+app.use(require('./src/routes/agenda'))
+app.use(require('./src/routes/users'))
 //Static Files
 app.use(express.static(path.join(__dirname, 'public')))
 //Server iniciation
 //Veririca su el servidor esta activo y muestra un mensaje con el puerto de escucha
-app.listen(process.env.port || app.get('port'), () => {
+app.listen(app.get('port'), () => {
   console.log('Server on port ', app.get('port'))
 })
